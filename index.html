@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calculador-proporcional</title>
+
+        <link rel="stylesheet" href="style.css">
+        <script type="module" src="./src/js/main.js" defer></script>
+    </head>
+
+    <body>
+        <main id="main">
+            <header class="header">
+                <p class="calculador-proporcional">Calculador Proporcional</p>
+            </header>
+            
+            <div id="introduccion-datos">
+                <section class="secciones">
+                    <label>Introducir importe total</label>
+
+                    <div>
+                        <input type="number" name="input-importe-total" id="input-importe-total"/>
+                        <button type="button" class="botones-enviar" id="boton-importe-total">Enviar</button>
+                    </div>
+                </section>
+
+                <section class="secciones oculto">
+                    <label>Introducir dia inicial</label>
+
+                    <div>
+                        <input type="date" name="input-dia-inicial" id="input-dia-inicial"/>
+                        <button type="button" class="botones-enviar" id="boton-dia-inicial">Enviar</button>
+                    </div>
+                </section>
+
+                <section class="secciones oculto">
+                    <label>Introducir dia final</label>
+
+                    <div>
+                        <input type="date" name="input-dia-final" id="input-dia-final"/>
+                        <button type="button" class="botones-enviar" id="boton-dia-final">Enviar</button>
+                    </div>
+                </section>
+
+                <section class="secciones oculto">
+                    <label>Dias Individuales</label>
+
+                    <div>
+                        
+                    </div>
+                </section>
+            </div>
+        </main>
+    </body>
+</html>
