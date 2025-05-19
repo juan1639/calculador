@@ -55,7 +55,9 @@ export class Settings
             botonDiaInicial: document.getElementById('boton-dia-inicial'),
 
             inputDiaFinal: document.getElementById('input-dia-final'),
-            botonDiaFinal: document.getElementById('boton-dia-final')
+            botonDiaFinal: document.getElementById('boton-dia-final'),
+
+            selectores: document.getElementsByClassName('selector')
         };
     }
 }

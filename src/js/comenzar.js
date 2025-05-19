@@ -46,4 +46,19 @@ function numero_dias_individual(importeTotal, diaInicialString, settings)
 
     settings.doms.secciones[estado].classList.remove('oculto');
     settings.doms.secciones[estado].classList.add('no-oculto');
+
+    const selectorEntreCuantasPersonas = settings.doms.selectores[0];
+
+    selectorEntreCuantasPersonas.addEventListener('change', () => numero_dias_cada_persona(
+        importeTotal, diaInicialString, diaFinalString, selectorEntreCuantasPersonas, settings));
 }
+
+function numero_dias_cada_persona(importeTotal, diaInicialString, diaFinalString, selectorEntreCuantasPersonas, settings)
+{
+    console.log(typeof selectorEntreCuantasPersonas.value, selectorEntreCuantasPersonas.value);
+
+    const entreCuantasPersonas = Number.parseFloat(selectorEntreCuantasPersonas.value);
+    console.log(typeof entreCuantasPersonas, entreCuantasPersonas);
+}
+
+

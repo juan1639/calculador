@@ -45,20 +45,25 @@ body {
     height: fit-content;
     max-width: 100%;
     min-height: 100px;
-    font-size: 24px;
+    font-size: 32px;
     color: #ccc;
     font-weight: bold;
-    background-color: #333;
+    background-color: #252525;
     display: flex;
-    justify-content: left;
+    justify-content: center;
     align-items: center;
-    padding: 0.6rem 2rem;
+    padding: 1rem 2rem;
 }
 
 .calculador-proporcional {
     font-size: 32px;
     color: #ed5;
-    padding: 0.8rem 1rem;
+    padding: 0.8rem 1.8rem;
+}
+
+.header-h3 {
+    color: #eda;
+    margin-top: 2rem;
 }
 
 #introduccion-datos {
@@ -80,8 +85,7 @@ label {
 #input-importe-total {
     width: 240px;
     min-width: 150px;
-    height: 70px;
-    min-height: 50px;
+    height: fit-content;
     border-radius: 4px;
     font-size: 24px;
     text-align: end;
@@ -89,6 +93,35 @@ label {
     background-color: #ddd;
     display: inline-block;
     padding: 0.8rem 1rem;
+    margin-bottom: 2rem;
+}
+
+#input-dia-inicial {
+    width: 240px;
+    min-width: 150px;
+    height: fit-content;
+    border-radius: 4px;
+    font-size: 24px;
+    text-align: end;
+    color: #333;
+    background-color: #ddd;
+    display: inline-block;
+    padding: 0.8rem 1rem;
+    margin-bottom: 2rem;
+}
+
+#input-dia-final {
+    width: 240px;
+    min-width: 150px;
+    height: fit-content;
+    border-radius: 4px;
+    font-size: 24px;
+    text-align: end;
+    color: #333;
+    background-color: #ddd;
+    display: inline-block;
+    padding: 0.8rem 1rem;
+    margin-bottom: 2rem;
 }
 
 .botones-enviar {
@@ -101,7 +134,7 @@ label {
     font-weight: bold;
     color: #ccc;
     background: #13e;
-    padding: 1.2rem 2rem;
+    padding: 1rem 2rem;
     display: inline-block;
     cursor: pointer;
 }
@@ -111,52 +144,20 @@ label {
     background-color: #028;
 }
 
-#input-dia-inicial {
-    width: 240px;
-    min-width: 150px;
-    height: 70px;
-    min-height: 50px;
-    border-radius: 4px;
-    font-size: 24px;
-    text-align: end;
-    color: #333;
-    background-color: #ddd;
-    display: inline-block;
-    padding: 0.8rem 1rem;
-}
-
-#input-dia-final {
-    width: 240px;
-    min-width: 150px;
-    height: 70px;
-    min-height: 50px;
-    border-radius: 4px;
-    font-size: 24px;
-    text-align: end;
-    color: #333;
-    background-color: #ddd;
-    display: inline-block;
-    padding: 0.8rem 1rem;
-}
-
-.selector-numero-preguntas {
+.selector {
     border: none;
-    border-radius: 6px;
+    border-radius: 4px;
     width: fit-content;
     height: fit-content;
-    max-width: 320px;
+    max-width: 180px;
     font-size: 24px;
     font-weight: bold;
-    color: #393937;
-    background: lightseagreen;
+    color: #dcb;
+    background: #442;
     padding: 0.4rem 2rem;
     display: inline-block;
-    margin-top: 400px;
-    margin-left: auto;
-    position: absolute;
-    opacity: 0.8;
     cursor: pointer;
-    z-index: 15;
+    margin: 0 1rem;
 }
 
 .modal {
@@ -188,9 +189,9 @@ label {
 hr {
     width: 100%;
     height: 2px;
-    background-color: #031585;
+    background-color: #431;
     padding: 0;
-    margin: 0;
+    margin: 0 0 1rem 0;
 }
 
 .oculto {
@@ -221,5 +222,73 @@ hr {
 RESPONSIVE
 ---------------------------------------------------- */
 @media (max-width: 768px) {
-    
+    #main {
+        font-size: 24px;
+    }
+
+    .header {
+        min-height: 80px;
+        font-size: 24px;
+        padding: 0.4rem 1rem;
+    }
+
+    .calculador-proporcional {
+        font-size: 24px;
+        padding: 0.4rem 0.6rem;
+    }
+
+    .header-h3 {
+        margin-top: 1.2rem;
+    }
+
+    #introduccion-datos {
+        padding: 2rem 1rem;
+    }
+
+    label {
+        font-size: 20px;
+        padding: 0.6rem 0;
+    }
+
+    #input-importe-total {
+        width: 150px;
+        min-width: 140px;
+        font-size: 24px;
+        padding: 0.8rem 1rem;
+        margin-bottom: 2rem;
+    }
+
+    #input-dia-inicial {
+        width: 180px;
+        min-width: 140px;
+        font-size: 20px;
+        padding: 0.8rem 1rem;
+        margin-bottom: 2rem;
+    }
+
+    #input-dia-final {
+        width: 180px;
+        min-width: 140px;
+        font-size: 20px;
+        padding: 0.8rem 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .botones-enviar {
+        max-width: 160px;
+        font-size: 22px;
+        padding: 0.8rem 1.4rem;
+    }
+
+    .botones-enviar:hover {
+        color: #fe7;
+        background-color: #028;
+    }
+
+    .selector {
+        max-width: 100px;
+        font-size: 24px;
+        padding: 0.4rem 1.4rem;
+        margin: 0 0.2rem;
+    }
 }
