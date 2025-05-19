@@ -1,3 +1,4 @@
+import { cambiar_estado_seccion, calcularDiasEntreFechas } from './funciones.js';
 
 export function importe_total(settings)
 {
@@ -82,6 +83,13 @@ function numero_dias_cada_persona(dataRecibida)
     console.log("Total-dias:", typeof diasTotalesRecibo, diasTotalesRecibo);
     console.log("Por-dia:", typeof cantidad_dia, cantidad_dia);
 
+    // Limpiar interfaz:
+    for (let i = 0; i <= settings.secciones.estado; i ++)
+    {
+        settings.doms.secciones[i].classList.remove('no-oculto');
+        settings.doms.secciones[i].classList.add('oculto');
+    }
+
     settings.secciones.estado = 4;
     cambiar_estado_seccion(settings);
 
@@ -96,41 +104,62 @@ function numero_dias_cada_persona(dataRecibida)
         settings
     };
 
-    mostrar_resultado(dataAcum);
+    nombres_personas(dataAcum);
 }
 
-function mostrar_resultado(dataRecibida)
+function nombres_personas(dataRecibida)
 {
-    console.log(dataRecibida);
+    //console.log(dataRecibida);
 
-}
+    const {
+        importeTotal,
+        diaInicialString,
+        diaFinalString,
+        diasTotalesRecibo,
+        cantidad_dia,
+        entreCuantasPersonas,
+        settings
+    } = dataRecibida;
+    
+    settings.doms.nombresPersonasContainer.innerHTML += '';
 
-
-function cambiar_estado_seccion(settings)
-{
-    const estado = settings.secciones.estado;
-
-    settings.doms.secciones[estado].classList.remove('oculto');
-    settings.doms.secciones[estado].classList.add('no-oculto');
-}
-
-
-
-
-function calcularDiasEntreFechas(diaInicialString, diaFinalString)
-{
-    const diaInicial = new Date(diaInicialString);
-    const diaFinal = new Date(diaFinalString);
-
-    if (isNaN(diaInicial) || isNaN(diaFinal))
+    for (let i = 1; i <= entreCuantasPersonas; i ++)
     {
-        console.warn("Fechas inválidas");
-        return null;
+        settings.doms.nombresPersonasContainer.innerHTML += `
+        <div>
+        <label>Nombre ${i}</label>
+        <input type="text" name="nombre-${i}" id="nombre-${i}" class="nombres-values"/>
+        </div>`;
     }
 
-    const diferenciaMs = diaFinal - diaInicial;
-    const diferenciaDias = Math.floor(diferenciaMs / (1000 * 60 * 60 * 24));
+    settings.doms.nombresValues = document.getElementsByClassName('nombres-values');
 
-    console.log(`Días de diferencia: ${diferenciaDias}`);
-    return diferenciaDias;
+    const dataAcum =
+    {
+        importeTotal,
+        diaInicialString,
+        diaFinalString,
+        diasTotalesRecibo,
+        cantidad_dia,
+        entreCuantasPersonas,
+        settings
+    };
+
+    settings.doms.botonNombres.addEventListener('click', () => seleccionar_dias(dataAcum));
+}
+
+function seleccionar_dias(dataRecibida)
+{
+    const {
+        importeTotal,
+        diaInicialString,
+        diaFinalString,
+        diasTotalesRecibo,
+        cantidad_dia,
+        entreCuantasPersonas,
+        settings
+    } = dataRecibida;
+    
+    console.log(settings.doms.nombresValues[0].value);
+    console.log(settings.doms.nombresValues[1].value);
 }

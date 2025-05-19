@@ -57,7 +57,10 @@ export class Settings
             inputDiaFinal: document.getElementById('input-dia-final'),
             botonDiaFinal: document.getElementById('boton-dia-final'),
 
-            selectores: document.getElementsByClassName('selector')
+            selectores: document.getElementsByClassName('selector'),
+
+            nombresPersonasContainer: document.getElementById('nombres-personas-container'),
+            botonNombres: document.getElementById('boton-nombres')
         };
     }
 }
