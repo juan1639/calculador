@@ -1,4 +1,10 @@
-import { cambiar_estado_seccion, calcularDiasEntreFechas } from './funciones.js';
+import {
+    cambiar_estado_seccion,
+    calcularDiasEntreFechas,
+    devuelve_dia_dela_semana,
+    devuelve_mes,
+    limpiar_interfaz
+} from './funciones.js';
 
 export function importe_total(settings)
 {
@@ -83,12 +89,7 @@ function numero_dias_cada_persona(dataRecibida)
     console.log("Total-dias:", typeof diasTotalesRecibo, diasTotalesRecibo);
     console.log("Por-dia:", typeof cantidad_dia, cantidad_dia);
 
-    // Limpiar interfaz:
-    for (let i = 0; i <= settings.secciones.estado; i ++)
-    {
-        settings.doms.secciones[i].classList.remove('no-oculto');
-        settings.doms.secciones[i].classList.add('oculto');
-    }
+    limpiar_interfaz(settings);
 
     settings.secciones.estado = 4;
     cambiar_estado_seccion(settings);
@@ -159,7 +160,32 @@ function seleccionar_dias(dataRecibida)
         entreCuantasPersonas,
         settings
     } = dataRecibida;
-    
+
     console.log(settings.doms.nombresValues[0].value);
     console.log(settings.doms.nombresValues[1].value);
+    
+    const diaSemana = devuelve_dia_dela_semana(diaInicialString);
+    const mes = devuelve_mes(diaInicialString);
+    console.log(diaSemana, mes);
+
+    limpiar_interfaz(settings);
+
+    settings.secciones.estado = 5;
+    cambiar_estado_seccion(settings);
+
+    settings.doms.diasComputadosContainer.innerHTML += '';
+
+    for (let i = 1; i <= diasTotalesRecibo; i ++)
+    {
+        settings.doms.diasComputadosContainer.innerHTML += `
+        <button type="button" class="botones-dias-computados">12</button>`;
+    }
+
+    settings.doms.botonesDiasComputados = document.getElementsByClassName('botones-dias-computados');
+
+    const botonesArray = Array.from(settings.doms.botonesDiasComputados);
+    botonesArray.forEach(elemento =>
+    {
+        elemento.textContent = "15";
+    });
 }

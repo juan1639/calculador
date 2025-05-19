@@ -147,7 +147,7 @@ input {
     font-size: 24px;
     font-weight: bold;
     color: #ccc;
-    background: #13e;
+    background-color: #13e;
     padding: 1rem 2rem;
     display: inline-block;
     cursor: pointer;
@@ -156,6 +156,26 @@ input {
 .botones-enviar:hover {
     color: #fe7;
     background-color: #028;
+}
+
+.botones-dias-computados {
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    width: fit-content;
+    height: fit-content;
+    max-width: 80px;
+    font-size: 32px;
+    font-weight: bold;
+    color: #dc9;
+    background-color: transparent;
+    padding: 1rem 1.4rem;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.botones-dias-computados:hover {
+    color: #fe7;
+    background-color: #039;
 }
 
 .selector {
@@ -167,7 +187,7 @@ input {
     font-size: 24px;
     font-weight: bold;
     color: #dcb;
-    background: #442;
+    background-color: #442;
     padding: 0.4rem 2rem;
     display: inline-block;
     cursor: pointer;
@@ -178,7 +198,11 @@ input {
     padding: 1rem 0.2rem;
 }
 
-#boton-nombres {
+#dias-computados-container {
+    padding: 1rem 1.4rem;
+}
+
+#boton-nombres, #boton-dias-computados {
     min-width: 240px;
 }
 
@@ -308,11 +332,6 @@ RESPONSIVE
         max-width: 160px;
         font-size: 22px;
         padding: 0.8rem 1.4rem;
-    }
-
-    .botones-enviar:hover {
-        color: #fe7;
-        background-color: #028;
     }
 
     .selector {

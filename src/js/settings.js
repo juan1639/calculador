@@ -60,7 +60,9 @@ export class Settings
             selectores: document.getElementsByClassName('selector'),
 
             nombresPersonasContainer: document.getElementById('nombres-personas-container'),
-            botonNombres: document.getElementById('boton-nombres')
+            botonNombres: document.getElementById('boton-nombres'),
+
+            diasComputadosContainer: document.getElementById('dias-computados-container')
         };
     }
 }
