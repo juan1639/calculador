@@ -34,7 +34,7 @@ body {
     /* border: 1px solid green; */
     width: inherit;
     height: inherit;
-    max-width: 1000px;
+    max-width: 1200px;
     font-size: 32px;
     display: block;
     margin: 0 auto;
@@ -178,6 +178,17 @@ input {
     background-color: #039;
 }
 
+#boton-seleccionar-todos {
+    max-width: 320px;
+    background-color: #15f;
+    margin: 0 1rem;
+}
+
+#boton-seleccionar-todos:hover {
+    color: #fe7;
+    background-color: #028;
+}
+
 .selector {
     border: none;
     border-radius: 4px;
@@ -204,6 +215,29 @@ input {
 
 #boton-nombres, #boton-dias-computados {
     min-width: 240px;
+}
+
+#calendario {
+    margin-bottom: 1rem;
+}
+
+#titulo-mes {
+    color: burlywood;
+    margin-left: 1rem;
+}
+
+th {
+    color: #bbb;
+    font-size: 18px;
+    padding: 1rem 1rem;
+}
+
+td {
+    color: #edc;
+    font-size: 20px;
+    padding: 1rem 1rem;
+    text-align: end;
+    border: 1px solid #111;
 }
 
 .modal {

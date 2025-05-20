@@ -49,3 +49,58 @@ export function devuelve_mes(diaInicialString)
 
     return diaInicial.getMonth();
 }
+
+export function generarCalendario(mes, año, idCalendario, idTitulo)
+{
+    const diasEnMes = new Date(año, mes + 1, 0).getDate();
+    const primerDia = new Date(año, mes, 1).getDay(); // 0 (Dom) a 6 (Sáb)
+
+    // const calendario = document.querySelector("#calendario tbody");
+    const calendario = document.querySelector(`#${idCalendario} tbody`);
+    const titulo = document.getElementById(idTitulo);
+
+    const nombresMeses =
+    [
+        "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+        "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+    ];
+
+    // Limpia el calendario anterior
+    calendario.innerHTML = "";
+    titulo.textContent = `${nombresMeses[mes]} ${año}`;
+
+    let diaActual = 1;
+    let fila = document.createElement("tr");
+
+    // Ajuste para que el lunes sea el primer día
+    let inicio = primerDia === 0 ? 6 : primerDia - 1;
+
+    // Celdas vacías hasta el primer día
+    for (let i = 0; i < inicio; i++)
+    {
+        fila.appendChild(document.createElement("td"));
+    }
+
+    // Rellenar los días
+    while (diaActual <= diasEnMes)
+    {
+        if (fila.children.length === 7)
+        {
+            calendario.appendChild(fila);
+            fila = document.createElement("tr");
+        }
+
+        const celda = document.createElement("td");
+        celda.textContent = diaActual;
+        fila.appendChild(celda);
+        diaActual++;
+    }
+
+    // Completar fila final si queda incompleta
+    while (fila.children.length < 7)
+    {
+        fila.appendChild(document.createElement("td"));
+    }
+
+    calendario.appendChild(fila);
+}

@@ -3,7 +3,8 @@ import {
     calcularDiasEntreFechas,
     devuelve_dia_dela_semana,
     devuelve_mes,
-    limpiar_interfaz
+    limpiar_interfaz,
+    generarCalendario
 } from './funciones.js';
 
 export function importe_total(settings)
@@ -175,17 +176,23 @@ function seleccionar_dias(dataRecibida)
 
     settings.doms.diasComputadosContainer.innerHTML += '';
 
-    for (let i = 1; i <= diasTotalesRecibo; i ++)
-    {
-        settings.doms.diasComputadosContainer.innerHTML += `
-        <button type="button" class="botones-dias-computados">12</button>`;
-    }
+    // Obtener fecha actual
+    const hoy = new Date(diaInicialString);
 
+    const mes1 = hoy.getMonth();
+    const año1 = hoy.getFullYear();
+    generarCalendario(mes1, año1, "calendario", "titulo-mes");
+
+    // Segundo mes, manejar rollover a enero del siguiente año
+    const mes2 = (mes1 + 1) % 12;
+    const año2 = mes1 === 11 ? año1 + 1 : año1;
+    generarCalendario(mes2, año2, "calendario-2", "titulo-mes-2");
+    
     settings.doms.botonesDiasComputados = document.getElementsByClassName('botones-dias-computados');
 
     const botonesArray = Array.from(settings.doms.botonesDiasComputados);
     botonesArray.forEach(elemento =>
     {
-        elemento.textContent = "15";
+        //elemento.textContent = "ej";
     });
 }
