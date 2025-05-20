@@ -155,6 +155,7 @@ input {
 
 .botones-enviar:hover {
     color: #fe7;
+    background-color: #1245aa;
     background-color: #028;
 }
 
@@ -232,6 +233,18 @@ td {
     color: #edc;
     padding: 1rem 1rem;
     text-align: end;
+}
+
+.marcado {
+    background-color: #1145aa;
+}
+
+.no-marcado {
+    background-color: transparent;
+}
+
+#sustituir-nombre {
+    color: #1ac;
 }
 
 .modal {

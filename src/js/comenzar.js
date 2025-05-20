@@ -4,7 +4,8 @@ import {
     devuelve_dia_dela_semana,
     devuelve_mes,
     limpiar_interfaz,
-    generarCalendario
+    generarCalendario,
+    click_seleccionar_dia
 } from './funciones.js';
 
 export function importe_total(settings)
@@ -164,7 +165,8 @@ function seleccionar_dias(dataRecibida)
 
     console.log(settings.doms.nombresValues[0].value);
     console.log(settings.doms.nombresValues[1].value);
-    
+    console.log("Nro nombres: ", settings.doms.nombresValues.length);
+
     const diaSemana = devuelve_dia_dela_semana(diaInicialString);
     const mes = devuelve_mes(diaInicialString);
     console.log(diaSemana, mes);
@@ -175,6 +177,9 @@ function seleccionar_dias(dataRecibida)
     cambiar_estado_seccion(settings);
 
     settings.doms.diasComputadosContainer.innerHTML += '';
+
+    const iteracion = settings.bucleNombres.contador;
+    settings.doms.sustituirNombre.textContent = settings.doms.nombresValues[iteracion].value;
 
     // Obtener fecha actual
     const hoy = new Date(diaInicialString);
@@ -189,12 +194,87 @@ function seleccionar_dias(dataRecibida)
     const mes2 = (mes1 + 1) % 12;
     const año2 = mes1 === 11 ? año1 + 1 : año1;
     generarCalendario(mes2, año2, "calendario-2", "titulo-mes-2", settings, diasTotalesRecibo, undefined);
-    
+
     settings.doms.botonesDiasComputados = document.getElementsByClassName('botones-dias-computados');
 
     const botonesArray = Array.from(settings.doms.botonesDiasComputados);
     botonesArray.forEach(elemento =>
     {
-        //elemento.textContent = "ej";
+        // elemento.style.backgroundColor = 'red';
+        elemento.addEventListener('click', () => click_seleccionar_dia(elemento));
     });
+
+    const dataAcum =
+    {
+        importeTotal,
+        diaInicialString,
+        diaFinalString,
+        diasTotalesRecibo,
+        cantidad_dia,
+        entreCuantasPersonas,
+        settings
+    };
+
+    settings.doms.botonEnviarDiasComputados.addEventListener('click', () =>
+    {
+        let contador = 0;
+
+        const botonesArray = Array.from(settings.doms.botonesDiasComputados);
+        botonesArray.forEach(elemento =>
+        {
+            if (elemento.classList.contains('marcado'))
+            {
+                contador ++;
+            }
+        });
+
+        const iteracion = settings.bucleNombres.contador;
+
+        settings.bucleNombres.diasIndividuales[iteracion] = contador;
+        console.log(settings.bucleNombres.diasIndividuales);
+
+        if (iteracion < settings.doms.nombresValues.length - 1)
+        {
+            settings.bucleNombres.contador ++;
+            const iteracion = settings.bucleNombres.contador;
+            settings.doms.sustituirNombre.textContent = settings.doms.nombresValues[iteracion].value;
+
+            const botonesArray = Array.from(settings.doms.botonesDiasComputados);
+            botonesArray.forEach(elemento =>
+            {
+                elemento.classList.remove('marcado');
+                elemento.classList.add('no-marcado');
+            });
+        }
+        else
+        {
+            mostrar_resultados(dataAcum);
+        }
+    });
+}
+
+function mostrar_resultados(dataRecibida)
+{
+    console.log('resultados *******');
+}
+
+function iteracionesNombres()
+{
+
+}
+
+function novale()
+{
+    const dataAcum =
+    {
+        importeTotal,
+        diaInicialString,
+        diaFinalString,
+        diasTotalesRecibo,
+        cantidad_dia,
+        entreCuantasPersonas,
+        settings
+    };
+
+    settings.doms.botonEnviarDiasComputados.addEventListener('click', mostrar_resultados(dataAcum));
 }

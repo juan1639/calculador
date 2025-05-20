@@ -31,6 +31,12 @@ export class Settings
             contador: 0
         };
 
+        this.bucleNombres =
+        {
+            contador: 0,
+            diasIndividuales: []
+        };
+
         this.detectarAnchoPantalla();
     }
 
@@ -66,8 +72,10 @@ export class Settings
 
             nombresPersonasContainer: document.getElementById('nombres-personas-container'),
             botonNombres: document.getElementById('boton-nombres'),
+            sustituirNombre: document.getElementById('sustituir-nombre'),
 
-            diasComputadosContainer: document.getElementById('dias-computados-container')
+            diasComputadosContainer: document.getElementById('dias-computados-container'),
+            botonEnviarDiasComputados: document.getElementById('boton-enviar-dias-computados')
         };
     }
 }

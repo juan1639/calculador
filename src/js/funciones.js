@@ -128,3 +128,24 @@ function agregar_class_dias_computados(celda, settings, diasTotales, dia_inicial
         }
     }
 }
+
+export function click_seleccionar_dia(elemento)
+{
+    console.log('click-', elemento.textContent);
+
+    if (elemento.classList.contains('marcado'))
+    {
+        elemento.classList.remove('marcado');
+        elemento.classList.add('no-marcado');
+        return;
+    }
+    else if (elemento.classList.contains('no-marcado'))
+    {
+        elemento.classList.remove('no-marcado');
+        elemento.classList.add('marcado');
+        return;
+    }
+
+    elemento.classList.remove('no-marcado');
+    elemento.classList.add('marcado');
+}
