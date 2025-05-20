@@ -50,7 +50,7 @@ export function devuelve_mes(diaInicialString)
     return diaInicial.getMonth();
 }
 
-export function generarCalendario(mes, año, idCalendario, idTitulo)
+export function generarCalendario(mes, año, idCalendario, idTitulo, settings, diasTotales, dia_inicial)
 {
     const diasEnMes = new Date(año, mes + 1, 0).getDate();
     const primerDia = new Date(año, mes, 1).getDay(); // 0 (Dom) a 6 (Sáb)
@@ -91,6 +91,7 @@ export function generarCalendario(mes, año, idCalendario, idTitulo)
         }
 
         const celda = document.createElement("td");
+        agregar_class_dias_computados(celda, settings, diasTotales, dia_inicial, diaActual);
         celda.textContent = diaActual;
         fila.appendChild(celda);
         diaActual++;
@@ -103,4 +104,27 @@ export function generarCalendario(mes, año, idCalendario, idTitulo)
     }
 
     calendario.appendChild(fila);
+}
+
+function agregar_class_dias_computados(celda, settings, diasTotales, dia_inicial, diaActual)
+{
+    if (dia_inicial === undefined)
+    {
+        // A partir del 2do mes, checkea solo el contador...
+        if (settings.diasComputados.contador <= diasTotales)
+        {
+            celda.classList.add("botones-dias-computados");
+            settings.diasComputados.contador ++;
+        }
+    }
+    else
+    {
+        // 1er mes, checkear contador y tambien que el dia...
+        // ...comience en el diaInicial(por ejemplo 7) y no en el dia 1 del mes
+        if (settings.diasComputados.contador <= diasTotales && diaActual >= dia_inicial)
+        {
+            celda.classList.add("botones-dias-computados");
+            settings.diasComputados.contador ++;
+        }
+    }
 }

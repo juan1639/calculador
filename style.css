@@ -159,17 +159,6 @@ input {
 }
 
 .botones-dias-computados {
-    border: 2px solid #ccc;
-    border-radius: 6px;
-    width: fit-content;
-    height: fit-content;
-    max-width: 80px;
-    font-size: 32px;
-    font-weight: bold;
-    color: #dc9;
-    background-color: transparent;
-    padding: 1rem 1.4rem;
-    display: inline-block;
     cursor: pointer;
 }
 
@@ -217,11 +206,13 @@ input {
     min-width: 240px;
 }
 
-#calendario {
-    margin-bottom: 1rem;
+table {
+    border-collapse: separate;
+    border-spacing: 10px;
+    margin-bottom: 4rem;
 }
 
-#titulo-mes {
+#titulo-mes, #titulo-mes-2 {
     color: burlywood;
     margin-left: 1rem;
 }
@@ -233,11 +224,12 @@ th {
 }
 
 td {
-    color: #edc;
+    border: 2px solid #212121;
+    border-radius: 6px;
     font-size: 20px;
+    color: #edc;
     padding: 1rem 1rem;
     text-align: end;
-    border: 1px solid #111;
 }
 
 .modal {

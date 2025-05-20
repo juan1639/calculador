@@ -26,6 +26,11 @@ export class Settings
             estado: 0
         };
 
+        this.diasComputados =
+        {
+            contador: 0
+        };
+
         this.detectarAnchoPantalla();
     }
 

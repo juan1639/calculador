@@ -178,15 +178,17 @@ function seleccionar_dias(dataRecibida)
 
     // Obtener fecha actual
     const hoy = new Date(diaInicialString);
+    settings.diasComputados.contador = 1;
 
     const mes1 = hoy.getMonth();
     const año1 = hoy.getFullYear();
-    generarCalendario(mes1, año1, "calendario", "titulo-mes");
+    const dia_inicial = hoy.getDate();
+    generarCalendario(mes1, año1, "calendario", "titulo-mes", settings, diasTotalesRecibo, dia_inicial);
 
     // Segundo mes, manejar rollover a enero del siguiente año
     const mes2 = (mes1 + 1) % 12;
     const año2 = mes1 === 11 ? año1 + 1 : año1;
-    generarCalendario(mes2, año2, "calendario-2", "titulo-mes-2");
+    generarCalendario(mes2, año2, "calendario-2", "titulo-mes-2", settings, diasTotalesRecibo, undefined);
     
     settings.doms.botonesDiasComputados = document.getElementsByClassName('botones-dias-computados');
 
