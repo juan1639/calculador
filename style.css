@@ -171,6 +171,7 @@ input {
     max-width: 320px;
     background-color: #15f;
     margin: 0 1rem;
+    font-size: 24px;
 }
 
 #boton-seleccionar-todos:hover {
@@ -204,6 +205,7 @@ input {
 
 #boton-nombres, #boton-dias-computados {
     min-width: 240px;
+    font-size: 24px;
 }
 
 table {
@@ -360,10 +362,46 @@ RESPONSIVE
         padding: 0.8rem 1.4rem;
     }
 
+    #boton-seleccionar-todos {
+        max-width: 160px;
+        margin: 0 0.5rem;
+        font-size: 18px;
+    }
+
     .selector {
         max-width: 100px;
         font-size: 24px;
         padding: 0.4rem 1.4rem;
         margin: 0 0.2rem;
+    }
+
+    #dias-computados-container {
+        padding: 1rem 0.2rem;
+    }
+
+    #boton-nombres, #boton-dias-computados {
+        min-width: 160px;
+        font-size: 18px;
+    }
+
+    #titulo-mes, #titulo-mes-2 {
+        margin-left: 1rem;
+    }
+
+    table {
+        border-spacing: 8px;
+    }
+
+    th {
+        color: #bbb;
+        font-size: 14px;
+        padding: 1rem 0.6rem;
+    }
+
+    td {
+        border: 2px solid #212121;
+        border-radius: 6px;
+        font-size: 16px;
+        padding: 1rem 0.6rem;
     }
 }
