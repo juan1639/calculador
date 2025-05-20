@@ -204,9 +204,9 @@ input {
     padding: 1rem 1.4rem;
 }
 
-#boton-nombres, #boton-dias-computados {
+#boton-nombres, #boton-enviar-dias-computados {
     min-width: 240px;
-    font-size: 24px;
+    font-size: 22px;
 }
 
 table {
@@ -392,9 +392,9 @@ RESPONSIVE
         padding: 1rem 0.2rem;
     }
 
-    #boton-nombres, #boton-dias-computados {
+    #boton-nombres, #boton-enviar-dias-computados {
         min-width: 160px;
-        font-size: 18px;
+        font-size: 14px;
     }
 
     #titulo-mes, #titulo-mes-2 {

@@ -5,11 +5,14 @@ import {
     devuelve_mes,
     limpiar_interfaz,
     generarCalendario,
-    click_seleccionar_dia
+    click_seleccionar_dia,
+    play_sonido
 } from './funciones.js';
 
 export function importe_total(settings)
 {
+    play_sonido(settings.sonidos.correct, settings.volumen.correct);
+
     const importeTotalString = settings.doms.inputImporteTotal.value;
     console.log(typeof importeTotalString, importeTotalString);
     
@@ -29,6 +32,8 @@ function dia_inicial(importeTotal, settings)
 
 function dia_final(importeTotal, settings)
 {
+    play_sonido(settings.sonidos.correct, settings.volumen.correct);
+
     const diaInicialString = settings.doms.inputDiaInicial.value;
     console.log(typeof diaInicialString, diaInicialString);
 
@@ -42,6 +47,8 @@ function dia_final(importeTotal, settings)
 function numero_dias_individual(dataRecibida)
 {
     const { importeTotal, diaInicialString, settings } = dataRecibida;
+
+    play_sonido(settings.sonidos.correct, settings.volumen.correct);
 
     const diaFinalString = settings.doms.inputDiaFinal.value;
     console.log(typeof diaFinalString, diaFinalString);
@@ -82,6 +89,8 @@ function numero_dias_cada_persona(dataRecibida)
         selectorEntreCuantasPersonas,
         settings
     } = dataRecibida;
+
+    play_sonido(settings.sonidos.correct, settings.volumen.correct);
 
     console.log(typeof selectorEntreCuantasPersonas.value, selectorEntreCuantasPersonas.value);
 
@@ -163,6 +172,8 @@ function seleccionar_dias(dataRecibida)
         settings
     } = dataRecibida;
 
+    play_sonido(settings.sonidos.correct, settings.volumen.correct);
+
     console.log(settings.doms.nombresValues[0].value);
     console.log(settings.doms.nombresValues[1].value);
     console.log("Nro nombres: ", settings.doms.nombresValues.length);
@@ -217,6 +228,8 @@ function seleccionar_dias(dataRecibida)
 
     settings.doms.botonEnviarDiasComputados.addEventListener('click', () =>
     {
+        play_sonido(settings.sonidos.correct, settings.volumen.correct);
+
         let contador = 0;
 
         const botonesArray = Array.from(settings.doms.botonesDiasComputados);
@@ -244,6 +257,11 @@ function seleccionar_dias(dataRecibida)
             {
                 elemento.classList.remove('marcado');
                 elemento.classList.add('no-marcado');
+            });
+
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
         }
         else

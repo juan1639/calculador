@@ -149,3 +149,9 @@ export function click_seleccionar_dia(elemento)
     elemento.classList.remove('no-marcado');
     elemento.classList.add('marcado');
 }
+
+export function play_sonido(nombre, vol)
+{
+    nombre.play();
+    nombre.volume = vol;
+}

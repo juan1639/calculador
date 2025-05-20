@@ -37,6 +37,22 @@ export class Settings
             diasIndividuales: []
         };
 
+        this.sonidos =
+        {
+            boooh: new Audio('assets/audio/boooh.mp3'),
+            correct: new Audio('assets/audio/correct-choice.mp3'),
+            wrong: new Audio('assets/audio/wrong-answer.mp3'),
+            moneda: new Audio('assets/audio/p-ping.mp3')
+        };
+
+        this.volumen =
+        {
+            correct: 0.8,
+            boooh: 0.7,
+            wrong: 0.7,
+            moneda: 0.4
+        };
+
         this.detectarAnchoPantalla();
     }
 
