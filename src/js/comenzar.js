@@ -48,13 +48,31 @@ function numero_dias_individual(dataRecibida)
 {
     const { importeTotal, diaInicialString, settings } = dataRecibida;
 
-    play_sonido(settings.sonidos.correct, settings.volumen.correct);
-
+    
     const diaFinalString = settings.doms.inputDiaFinal.value;
     console.log(typeof diaFinalString, diaFinalString);
-
+    
     // Aqui ya calculamos los dias RESTANDO las fechas:
     const diasTotalesRecibo = calcularDiasEntreFechas(diaInicialString, diaFinalString);
+    
+    if (diasTotalesRecibo === null)
+    {
+        settings.doms.errorFechaFinalAnterior.classList.remove('oculto');
+        settings.doms.errorFechaFinalAnterior.classList.add('no-oculto');
+        
+        settings.doms.secciones[2].classList.add('error-rojo');
+        
+        play_sonido(settings.sonidos.wrong, settings.volumen.wrong);
+    }
+    else if (diasTotalesRecibo >= 0)
+    {
+        settings.doms.errorFechaFinalAnterior.classList.remove('no-oculto');
+        settings.doms.errorFechaFinalAnterior.classList.add('oculto');
+        
+        settings.doms.secciones[2].classList.remove('error-rojo');
+
+        play_sonido(settings.sonidos.correct, settings.volumen.correct);
+    }
 
     // Calculamos la cantidad/dia:
     const cantidad_dia = importeTotal / diasTotalesRecibo;
@@ -75,5 +93,15 @@ function numero_dias_individual(dataRecibida)
         settings
     };
 
-    selectorEntreCuantasPersonas.addEventListener('change', () => numero_dias_cada_persona(dataAcum));
+    selectorEntreCuantasPersonas.addEventListener('change', () =>
+    {
+        if (diasTotalesRecibo >= 0)
+        {
+            numero_dias_cada_persona(dataAcum);
+        }
+        else
+        {
+            play_sonido(settings.sonidos.wrong, settings.volumen.wrong);
+        }
+    });
 }

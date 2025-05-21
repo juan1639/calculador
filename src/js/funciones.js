@@ -29,6 +29,12 @@ export function calcularDiasEntreFechas(diaInicialString, diaFinalString)
         return null;
     }
 
+    if  (diaFinal - diaInicial < 0)
+    {
+        console.warn('La fecha final no puede ser anterior a la inicial');
+        return null;
+    }
+
     const diferenciaMs = diaFinal - diaInicial;
     const diferenciaDias = Math.floor(diferenciaMs / (1000 * 60 * 60 * 24));
 
@@ -167,6 +173,15 @@ export function marcar_desmarcar_todos(marcar, settings)
             elemento.classList.add('no-marcado');
         }
     });
+}
+
+export function cambiar_txt_boton(texto, iteracion, settings)
+{
+    if (iteracion === settings.doms.nombresValues.length - 1)
+    {
+        settings.doms.botonEnviarDiasComputados.textContent = texto;
+        settings.doms.botonEnviarDiasComputados.style.backgroundColor = '#35aa10';
+    }
 }
 
 export function mover_scroll(coorY, velocidad)

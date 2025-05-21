@@ -8,7 +8,8 @@ import
     click_seleccionar_dia,
     play_sonido,
     marcar_desmarcar_todos,
-    mover_scroll
+    mover_scroll,
+    cambiar_txt_boton
 } from "./funciones.js";
 
 import { mostrar_resultados } from './resultados.js';
@@ -113,7 +114,8 @@ export function seleccionar_dias(dataRecibida)
             const iteracion = settings.bucleNombres.contador;
 
             settings.doms.sustituirNombre.textContent = settings.doms.nombresValues[iteracion].value;
-
+            cambiar_txt_boton('Calcular', iteracion, settings);
+            
             marcar_desmarcar_todos(false, settings);
             mover_scroll(0, 'smooth');
         }

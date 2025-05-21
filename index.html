@@ -42,6 +42,8 @@
                         <input type="date" name="input-dia-final" id="input-dia-final"/>
                         <button type="button" class="botones-enviar" id="boton-dia-final">Enviar</button>
                     </div>
+
+                    <small class="error-fecha-final-anterior oculto" id="error-fecha-final-anterior">La fecha final NO puede ser anterior a la inicial</small>
                 </section>
 
                 <section class="secciones oculto">
@@ -61,14 +63,11 @@
                     </div>
                 </section>
 
-                <section class="secciones oculto">
+                <section class="secciones oculto" style="width: 100vw; max-width: 1000px;">
                     <h3 class="header-h3">Nombres de las personas</h3>
                     <hr/>
 
                     <div id="nombres-personas-container">
-                        <!-- <label>Persona</label>
-                        <input type="text" name="nombre-" id="nombre-"/>
-                        <button type="button" class="botones-enviar" id="nombre-">Enviar</button> -->
                     </div>
                     
                     <button type="button" class="botones-enviar" id="boton-nombres">Enviar</button>
@@ -122,6 +121,15 @@
                     <button type="button" class="botones-enviar" id="boton-enviar-dias-computados">Siguiente persona</button>
                 </section>
 
+                <section class="secciones oculto" style="width: 100vw; max-width: 1000px;">
+                    <h3 class="header-h3">Resultados individuales</h3>
+                    <hr/>
+
+                    <div id="personas-resultados-container">
+                    </div>
+                    
+                    <button type="button" class="botones-enviar" id="boton-repetir">Repetir calculos</button>
+                </section>
             </div>
         </main>
     </body>

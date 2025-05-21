@@ -37,6 +37,11 @@ export class Settings
             diasIndividuales: []
         };
 
+        this.resultados =
+        {
+            resultado: []
+        };
+
         this.sonidos =
         {
             boooh: new Audio('assets/audio/boooh.mp3'),
@@ -87,6 +92,7 @@ export class Settings
 
             inputDiaFinal: document.getElementById('input-dia-final'),
             botonDiaFinal: document.getElementById('boton-dia-final'),
+            errorFechaFinalAnterior: document.getElementById('error-fecha-final-anterior'),
 
             selectores: document.getElementsByClassName('selector'),
 
@@ -96,7 +102,10 @@ export class Settings
 
             diasComputadosContainer: document.getElementById('dias-computados-container'),
             botonEnviarDiasComputados: document.getElementById('boton-enviar-dias-computados'),
-            botonSeleccionarTodos: document.getElementById('boton-seleccionar-todos')
+            botonSeleccionarTodos: document.getElementById('boton-seleccionar-todos'),
+
+            personasResultadosContainer: document.getElementById('personas-resultados-container'),
+            botonRepetir: document.getElementById('boton-repetir')
         };
     }
 }

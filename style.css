@@ -138,6 +138,20 @@ input {
     margin-bottom: 2rem;
 }
 
+.error-fecha-final-anterior {
+    color: #d21;
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 700;
+    text-shadow: 1px 1px 1px #111;
+}
+
+.error-rojo {
+    color: #d21;
+    border: 1px solid #d21;
+    border-radius: 6px;
+}
+
 .botones-enviar {
     border: none;
     border-radius: 6px;
@@ -200,6 +214,13 @@ input {
     padding: 1rem 0.2rem;
 }
 
+#personas-resultados-container {
+    padding: 1rem 0.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
 #dias-computados-container {
     padding: 1rem 1.4rem;
 }
@@ -207,6 +228,10 @@ input {
 #boton-nombres, #boton-enviar-dias-computados {
     min-width: 240px;
     font-size: 22px;
+}
+
+#boton-repetir {
+    margin-left: 80%;
 }
 
 table {
@@ -379,6 +404,10 @@ RESPONSIVE
         max-width: 160px;
         margin: 0 0.5rem;
         font-size: 18px;
+    }
+
+    #boton-repetir {
+        margin-left: 48%;
     }
 
     .selector {

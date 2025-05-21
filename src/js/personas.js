@@ -17,7 +17,7 @@ export function numero_dias_cada_persona(dataRecibida)
 
     console.log(typeof selectorEntreCuantasPersonas.value, selectorEntreCuantasPersonas.value);
 
-    const entreCuantasPersonas = Number.parseFloat(selectorEntreCuantasPersonas.value);
+    const entreCuantasPersonas = Number.parseInt(selectorEntreCuantasPersonas.value);
     console.log(typeof entreCuantasPersonas, entreCuantasPersonas);
 
     console.log("Total-dias:", typeof diasTotalesRecibo, diasTotalesRecibo);
