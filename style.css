@@ -269,7 +269,30 @@ td {
 }
 
 #sustituir-nombre {
-    color: #1ac;
+    color: rgb(160, 124, 42);
+    font-style: italic;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+hr {
+    width: 100%;
+    height: 1px;
+    background-color: #431;
+    padding: 0;
+    margin: 0 0 1rem 0;
+}
+
+.oculto {
+    display: none;
+}
+
+.no-oculto {
+    display: inline-block;
+}
+
+.no-oculto-flex {
+    display: flex;
 }
 
 .modal {
@@ -296,26 +319,6 @@ td {
     justify-content: start;
     align-items: center;
     gap: 2rem;
-}
-
-hr {
-    width: 100%;
-    height: 1px;
-    background-color: #431;
-    padding: 0;
-    margin: 0 0 1rem 0;
-}
-
-.oculto {
-    display: none;
-}
-
-.no-oculto {
-    display: inline-block;
-}
-
-.no-oculto-flex {
-    display: flex;
 }
 
 @keyframes opacidadTransicion {

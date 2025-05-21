@@ -28,13 +28,12 @@ export function seleccionar_dias(dataRecibida)
 
     play_sonido(settings.sonidos.correct, settings.volumen.correct);
 
-    console.log(settings.doms.nombresValues[0].value);
-    console.log(settings.doms.nombresValues[1].value);
-    console.log("Nro nombres: ", settings.doms.nombresValues.length);
+    //console.log(settings.doms.nombresValues[0].value);
+    //console.log("Nro nombres: ", settings.doms.nombresValues.length);
 
     const diaSemana = devuelve_dia_dela_semana(diaInicialString);
     const mes = devuelve_mes(diaInicialString);
-    console.log(diaSemana, mes);
+    //console.log(diaSemana, mes);
 
     limpiar_interfaz(settings);
 

@@ -1,8 +1,8 @@
-import { cambiar_estado_seccion, limpiar_interfaz } from "./funciones.js";
+import { cambiar_estado_seccion, limpiar_interfaz, mover_scroll } from "./funciones.js";
 
 export function mostrar_resultados(dataRecibida)
 {
-    console.log('resultados *******');
+    //console.log('resultados');
 
     const {
         importeTotal,
@@ -42,6 +42,7 @@ export function mostrar_resultados(dataRecibida)
         }
     }
 
+    mover_scroll(0, 'smooth');
     limpiar_interfaz(settings);
     
     settings.secciones.estado = 6;
@@ -59,7 +60,7 @@ export function mostrar_resultados(dataRecibida)
         <input disabled value="${cantidad}" type="text" name="nombre-resultado-${i}" id="nombre-resultado-${i}" class="nombres-values" style="font-weight: bold;"/>
         </div>`;
 
-        console.log(settings.resultados.resultado[i]);
+        //console.log(settings.resultados.resultado[i]);
     }
 
     settings.doms.botonRepetir.addEventListener('click', () =>

@@ -1,23 +1,23 @@
 import {
     cambiar_estado_seccion,
     calcularDiasEntreFechas,
-    play_sonido
+    play_sonido,
+    deshabilitar_elementos,
+    mostrar_error
 } from './funciones.js';
 
-import
-{
-    numero_dias_cada_persona
-} from './personas.js';
+import { numero_dias_cada_persona } from './personas.js';
 
 export function importe_total(settings)
 {
     play_sonido(settings.sonidos.correct, settings.volumen.correct);
+    deshabilitar_elementos(settings.doms.botonImporteTotal, 0.1);
 
     const importeTotalString = settings.doms.inputImporteTotal.value;
-    console.log(typeof importeTotalString, importeTotalString);
+    //console.log(typeof importeTotalString, importeTotalString);
     
     const importeTotal = Number.parseFloat(importeTotalString);
-    console.log(typeof importeTotal, importeTotal);
+    //console.log(typeof importeTotal, importeTotal);
 
     settings.secciones.estado = 1;
 
@@ -33,46 +33,44 @@ function dia_inicial(importeTotal, settings)
 function dia_final(importeTotal, settings)
 {
     play_sonido(settings.sonidos.correct, settings.volumen.correct);
+    deshabilitar_elementos(settings.doms.botonDiaInicial, 0.1);
 
     const diaInicialString = settings.doms.inputDiaInicial.value;
-    console.log(typeof diaInicialString, diaInicialString);
+    //console.log(typeof diaInicialString, diaInicialString);
 
     settings.secciones.estado = 2;
     cambiar_estado_seccion(settings);
 
     const dataAcum = { importeTotal, diaInicialString, settings };
-    settings.doms.botonDiaFinal.addEventListener('click', () => numero_dias_individual(dataAcum));
+
+    settings.doms.botonDiaFinal.addEventListener('click', () =>
+    {
+        if (calcularDiasEntreFechas(diaInicialString, settings.doms.inputDiaFinal.value) === null)
+        {
+            mostrar_error(true, 2, settings);
+            play_sonido(settings.sonidos.wrong, settings.volumen.wrong);
+        }
+        else if (calcularDiasEntreFechas(diaInicialString, settings.doms.inputDiaFinal.value) >= 0)
+        {
+            mostrar_error(false, 2, settings);
+            play_sonido(settings.sonidos.correct, settings.volumen.correct);
+
+            numero_dias_individual(dataAcum);
+        }
+    });
 }
 
 function numero_dias_individual(dataRecibida)
 {
     const { importeTotal, diaInicialString, settings } = dataRecibida;
 
-    
+    deshabilitar_elementos(settings.doms.botonDiaFinal, 0.1);
+
     const diaFinalString = settings.doms.inputDiaFinal.value;
-    console.log(typeof diaFinalString, diaFinalString);
+    //console.log(typeof diaFinalString, diaFinalString);
     
     // Aqui ya calculamos los dias RESTANDO las fechas:
     const diasTotalesRecibo = calcularDiasEntreFechas(diaInicialString, diaFinalString);
-    
-    if (diasTotalesRecibo === null)
-    {
-        settings.doms.errorFechaFinalAnterior.classList.remove('oculto');
-        settings.doms.errorFechaFinalAnterior.classList.add('no-oculto');
-        
-        settings.doms.secciones[2].classList.add('error-rojo');
-        
-        play_sonido(settings.sonidos.wrong, settings.volumen.wrong);
-    }
-    else if (diasTotalesRecibo >= 0)
-    {
-        settings.doms.errorFechaFinalAnterior.classList.remove('no-oculto');
-        settings.doms.errorFechaFinalAnterior.classList.add('oculto');
-        
-        settings.doms.secciones[2].classList.remove('error-rojo');
-
-        play_sonido(settings.sonidos.correct, settings.volumen.correct);
-    }
 
     // Calculamos la cantidad/dia:
     const cantidad_dia = importeTotal / diasTotalesRecibo;
@@ -93,15 +91,5 @@ function numero_dias_individual(dataRecibida)
         settings
     };
 
-    selectorEntreCuantasPersonas.addEventListener('change', () =>
-    {
-        if (diasTotalesRecibo >= 0)
-        {
-            numero_dias_cada_persona(dataAcum);
-        }
-        else
-        {
-            play_sonido(settings.sonidos.wrong, settings.volumen.wrong);
-        }
-    });
+    selectorEntreCuantasPersonas.addEventListener('change', () => numero_dias_cada_persona(dataAcum));
 }

@@ -175,6 +175,30 @@ export function marcar_desmarcar_todos(marcar, settings)
     });
 }
 
+export function mostrar_error(mostrar, seccion, settings)
+{
+    if (mostrar)
+    {
+        settings.doms.errorFechaFinalAnterior.classList.remove('oculto');
+        settings.doms.errorFechaFinalAnterior.classList.add('no-oculto');
+
+        settings.doms.secciones[seccion].classList.add('error-rojo');
+    }
+    else
+    {
+        settings.doms.errorFechaFinalAnterior.classList.remove('no-oculto');
+        settings.doms.errorFechaFinalAnterior.classList.add('oculto');
+        
+        settings.doms.secciones[seccion].classList.remove('error-rojo');
+    }
+}
+
+export function deshabilitar_elementos(elemento, opacity)
+{
+    elemento.disabled = true;
+    elemento.style.opacity = opacity;
+}
+
 export function cambiar_txt_boton(texto, iteracion, settings)
 {
     if (iteracion === settings.doms.nombresValues.length - 1)
