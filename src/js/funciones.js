@@ -150,6 +150,33 @@ export function click_seleccionar_dia(elemento)
     elemento.classList.add('marcado');
 }
 
+export function marcar_desmarcar_todos(marcar, settings)
+{
+    const botonesArray = Array.from(settings.doms.botonesDiasComputados);
+
+    botonesArray.forEach(elemento =>
+    {
+        if (marcar)
+        {
+            elemento.classList.remove('no-marcado');
+            elemento.classList.add('marcado');
+        }
+        else if (!marcar)
+        {
+            elemento.classList.remove('marcado');
+            elemento.classList.add('no-marcado');
+        }
+    });
+}
+
+export function mover_scroll(coorY, velocidad)
+{
+    window.scrollTo({
+        top: coorY,
+        behavior: velocidad
+    });
+}
+
 export function play_sonido(nombre, vol)
 {
     nombre.play();

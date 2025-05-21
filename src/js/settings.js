@@ -42,7 +42,9 @@ export class Settings
             boooh: new Audio('assets/audio/boooh.mp3'),
             correct: new Audio('assets/audio/correct-choice.mp3'),
             wrong: new Audio('assets/audio/wrong-answer.mp3'),
-            moneda: new Audio('assets/audio/p-ping.mp3')
+            moneda: new Audio('assets/audio/p-ping.mp3'),
+            key: new Audio('assets/audio/key.wav'),
+            numKey: new Audio('assets/audio/numkey.wav')
         };
 
         this.volumen =
@@ -50,7 +52,9 @@ export class Settings
             correct: 0.8,
             boooh: 0.7,
             wrong: 0.7,
-            moneda: 0.4
+            moneda: 0.4,
+            key: 0.9,
+            numKey: 0.9
         };
 
         this.detectarAnchoPantalla();
@@ -91,7 +95,8 @@ export class Settings
             sustituirNombre: document.getElementById('sustituir-nombre'),
 
             diasComputadosContainer: document.getElementById('dias-computados-container'),
-            botonEnviarDiasComputados: document.getElementById('boton-enviar-dias-computados')
+            botonEnviarDiasComputados: document.getElementById('boton-enviar-dias-computados'),
+            botonSeleccionarTodos: document.getElementById('boton-seleccionar-todos')
         };
     }
 }

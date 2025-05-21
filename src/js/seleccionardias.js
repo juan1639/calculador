@@ -6,7 +6,9 @@ import
     limpiar_interfaz,
     generarCalendario,
     click_seleccionar_dia,
-    play_sonido
+    play_sonido,
+    marcar_desmarcar_todos,
+    mover_scroll
 } from "./funciones.js";
 
 import { mostrar_resultados } from './resultados.js';
@@ -77,6 +79,9 @@ export function seleccionar_dias(dataRecibida)
         settings
     };
 
+    // -----------------------------------------------------------------------
+    // Evento de 'Siguente Persona' (enviar datos dias-individuales-persona)
+    // -----------------------------------------------------------------------
     settings.doms.botonEnviarDiasComputados.addEventListener('click', () =>
     {
         play_sonido(settings.sonidos.correct, settings.volumen.correct);
@@ -103,25 +108,27 @@ export function seleccionar_dias(dataRecibida)
 
         if (iteracion < settings.doms.nombresValues.length - 1)
         {
+            // *** incrementar el contador (persona) ***
             settings.bucleNombres.contador ++;
             const iteracion = settings.bucleNombres.contador;
+
             settings.doms.sustituirNombre.textContent = settings.doms.nombresValues[iteracion].value;
 
-            const botonesArray = Array.from(settings.doms.botonesDiasComputados);
-            botonesArray.forEach(elemento =>
-            {
-                elemento.classList.remove('marcado');
-                elemento.classList.add('no-marcado');
-            });
-
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+            marcar_desmarcar_todos(false, settings);
+            mover_scroll(0, 'smooth');
         }
         else
         {
             mostrar_resultados(dataAcum);
         }
+    });
+
+    // -------------------------------------------------------------------
+    // Evento de 'Seleccionar todos' (seleccionar todo el periodo)
+    // -------------------------------------------------------------------
+    settings.doms.botonSeleccionarTodos.addEventListener('click', () =>
+    {
+        play_sonido(settings.sonidos.numKey, settings.volumen.numKey);
+        marcar_desmarcar_todos(true, settings);
     });
 }
