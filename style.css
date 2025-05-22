@@ -169,7 +169,6 @@ input {
 
 .botones-enviar:hover {
     color: #fe7;
-    background-color: #1245aa;
     background-color: #028;
 }
 
@@ -190,8 +189,7 @@ input {
 }
 
 #boton-seleccionar-todos:hover {
-    color: #fe7;
-    background-color: #028;
+    color: #ccc;
 }
 
 .selector {
@@ -401,6 +399,10 @@ RESPONSIVE
         max-width: 160px;
         font-size: 22px;
         padding: 0.8rem 1.4rem;
+    }
+
+    .botones-dias-computados:hover {
+        color: #ccc;
     }
 
     #boton-seleccionar-todos {

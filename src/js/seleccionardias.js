@@ -59,6 +59,11 @@ export function seleccionar_dias(dataRecibida)
     const año2 = mes1 === 11 ? año1 + 1 : año1;
     generarCalendario(mes2, año2, "calendario-2", "titulo-mes-2", settings, diasTotalesRecibo, undefined);
 
+    // Tercer mes, manejar rollover a enero del siguiente año
+    const mes3 = (mes2 + 1) % 12;
+    const año3 = mes2 === 11 ? año2 + 1 : año2;
+    generarCalendario(mes3, año3, "calendario-3", "titulo-mes-3", settings, diasTotalesRecibo, undefined);
+
     settings.doms.botonesDiasComputados = document.getElementsByClassName('botones-dias-computados');
 
     const botonesArray = Array.from(settings.doms.botonesDiasComputados);
