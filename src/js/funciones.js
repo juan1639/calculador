@@ -173,6 +173,9 @@ export function marcar_desmarcar_todos(marcar, settings)
             elemento.classList.add('no-marcado');
         }
     });
+
+    settings.diasComputados.seleccionarTodos = !settings.diasComputados.seleccionarTodos;
+    settings.doms.botonSeleccionarTodos.textContent = settings.diasComputados.seleccionarTodos ? 'Seleccionar todos' : 'Deseleccionar todos';
 }
 
 export function mostrar_error(mostrar, seccion, settings)

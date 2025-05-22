@@ -176,11 +176,6 @@ input {
     cursor: pointer;
 }
 
-.botones-dias-computados:hover {
-    color: #fe7;
-    background-color: #039;
-}
-
 #boton-seleccionar-todos {
     max-width: 320px;
     background-color: #15f;
@@ -399,10 +394,6 @@ RESPONSIVE
         max-width: 160px;
         font-size: 22px;
         padding: 0.8rem 1.4rem;
-    }
-
-    .botones-dias-computados:hover {
-        color: #ccc;
     }
 
     #boton-seleccionar-todos {

@@ -135,6 +135,6 @@ export function seleccionar_dias(dataRecibida)
     settings.doms.botonSeleccionarTodos.addEventListener('click', () =>
     {
         play_sonido(settings.sonidos.numKey, settings.volumen.numKey);
-        marcar_desmarcar_todos(true, settings);
+        marcar_desmarcar_todos(settings.diasComputados.seleccionarTodos, settings);
     });
 }

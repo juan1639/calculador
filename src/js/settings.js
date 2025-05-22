@@ -28,7 +28,8 @@ export class Settings
 
         this.diasComputados =
         {
-            contador: 0
+            contador: 0,
+            seleccionarTodos: true
         };
 
         this.bucleNombres =
