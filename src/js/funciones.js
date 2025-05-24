@@ -207,7 +207,7 @@ export function cambiar_txt_boton(texto, iteracion, settings)
     if (iteracion === settings.doms.nombresValues.length - 1)
     {
         settings.doms.botonEnviarDiasComputados.textContent = texto;
-        settings.doms.botonEnviarDiasComputados.style.backgroundColor = '#35aa10';
+        settings.doms.botonEnviarDiasComputados.style.backgroundColor = '#15cc10';
     }
 }
 

@@ -36,7 +36,7 @@ function dia_final(importeTotal, settings)
     deshabilitar_elementos(settings.doms.botonDiaInicial, 0.1);
 
     const diaInicialString = settings.doms.inputDiaInicial.value;
-    //console.log(typeof diaInicialString, diaInicialString);
+    console.log(typeof diaInicialString, diaInicialString);
 
     settings.secciones.estado = 2;
     cambiar_estado_seccion(settings);
@@ -49,6 +49,7 @@ function dia_final(importeTotal, settings)
         {
             mostrar_error(true, 2, settings);
             play_sonido(settings.sonidos.wrong, settings.volumen.wrong);
+            setTimeout(() => location.reload(), 4200);
         }
         else if (calcularDiasEntreFechas(diaInicialString, settings.doms.inputDiaFinal.value) >= 0)
         {

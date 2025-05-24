@@ -1,5 +1,6 @@
 
 :root {
+    --fondoGris: rgba(108, 108, 108, 0.9);
     --blanco: #cccccc;
     --blancoIntenso: #ffffee;
     --blanco-azulado:rgb(200, 245, 255);
@@ -23,7 +24,8 @@ html, body {
 }
 
 body {
-    background-color: #555;
+    /* background-color: #595959; */
+    background-color: rgba(108, 108, 108, 0.9);
     /* background-position: center;
     background-repeat: no-repeat;
     background-size: cover; */
@@ -147,8 +149,8 @@ input {
 }
 
 .error-rojo {
-    color: #d21;
-    border: 1px solid #d21;
+    color: #910;
+    border: 1px solid #910;
     border-radius: 6px;
 }
 
@@ -262,7 +264,7 @@ td {
 }
 
 #sustituir-nombre {
-    color: rgb(160, 124, 42);
+    color: rgb(99, 94, 32);
     font-style: italic;
     font-weight: bold;
     text-decoration: underline;

@@ -91,6 +91,11 @@ export function seleccionar_dias(dataRecibida)
     {
         play_sonido(settings.sonidos.correct, settings.volumen.correct);
 
+        // RESETEAR el boton 'seleccionar todos' (default) ------------------
+        settings.diasComputados.seleccionarTodos = false;
+        settings.doms.botonSeleccionarTodos.textContent = 'Seleccionar todos';
+        // ------------------------------------------------------------------
+        
         let arrayDiasPersona = [];
 
         const botonesArray = Array.from(settings.doms.botonesDiasComputados);
