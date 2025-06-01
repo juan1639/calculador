@@ -53,9 +53,10 @@ export function mostrar_resultados(dataRecibida)
     for (let i = 0; i < entreCuantasPersonas; i ++)
     {
         const cantidad = settings.resultados.resultado[i].toFixed(2);
+        const numero_dias_persona = settings.bucleNombres.diasIndividuales[i].filter(diaSeleccionado => diaSeleccionado);
 
         settings.doms.personasResultadosContainer.innerHTML += `
-        <div class="label-resultados"><label>${settings.doms.nombresValues[i].value}</label></div>
+        <div class="label-resultados"><label>${settings.doms.nombresValues[i].value} (${numero_dias_persona.length} días)</label></div>
         <div class="input-resultados">
         <input disabled value="${cantidad}" type="text" name="nombre-resultado-${i}" id="nombre-resultado-${i}" class="nombres-values" style="font-weight: bold;"/>
         </div>`;
